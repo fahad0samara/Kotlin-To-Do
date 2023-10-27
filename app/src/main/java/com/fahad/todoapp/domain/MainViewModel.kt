@@ -7,6 +7,7 @@ import androidx.lifecycle.viewModelScope
 import com.fahad.todoapp.data.local.dto.LocalNote
 import com.fahad.todoapp.data.repo.Repository
 import dagger.hilt.android.lifecycle.HiltViewModel
+
 import kotlinx.coroutines.launch
 import javax.inject.Inject
 
@@ -14,7 +15,7 @@ import javax.inject.Inject
 class MainViewModel @Inject constructor(
     private val repository: Repository
 ): ViewModel() {
-    private val stateUi= mutableStateOf(StateUtil())
+val stateUi= mutableStateOf(StateUtil())
 
 
     init {

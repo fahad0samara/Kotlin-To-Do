@@ -13,27 +13,24 @@ interface DAONote {
     @Insert
     suspend fun insert(note: LocalNote)
 
-    @Query("SELECT * FROM notes" )
+    @Query("SELECT * FROM notes")
     fun getNotes(): Flow<List<LocalNote>>
 
-    @Query("SELECT * FROM notes WHERE isFinished=isFinished ")
-    suspend fun getFinishedNotes(isFinished: Boolean) :Flow <List<LocalNote>>
+    @Query("SELECT * FROM notes WHERE isFinished=:isFinished")
+    fun getFinishedNotes(isFinished: Boolean): Flow<List<LocalNote>>
 
-    @Query("SELECT * FROM notes WHERE isPinned=isPinned ")
-    suspend fun getPinnedNotes(isPinned: Boolean) :Flow <List<LocalNote>>
+    @Query("SELECT * FROM notes WHERE isPinned=:isPinned")
+    fun getPinnedNotes(isPinned: Boolean): Flow<List<LocalNote>>
 
-    @Query("SELECT * FROM notes WHERE isArchived=isArchived ")
-    suspend fun getArchivedNotes(isArchived: Boolean) :Flow <List<LocalNote>>
+    @Query("SELECT * FROM notes WHERE isArchived=:isArchived")
+    fun getArchivedNotes(isArchived: Boolean): Flow<List<LocalNote>>
 
-    @Query("SELECT * FROM notes WHERE isSynced=isSynced ")
-    suspend fun getSyncedNotes(isSynced: Boolean) :Flow <List<LocalNote>>
-
-
+    @Query("SELECT * FROM notes WHERE isSynced=:isSynced")
+    fun getSyncedNotes(isSynced: Boolean): Flow<List<LocalNote>>
 
     @Delete
     suspend fun delete(note: LocalNote)
 
     @Update
     suspend fun update(note: LocalNote)
-
 }

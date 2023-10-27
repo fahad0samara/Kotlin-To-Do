@@ -2,8 +2,11 @@
 plugins {
     alias(libs.plugins.androidApplication)
     alias(libs.plugins.kotlinAndroid)
-    kotlin("kapt")
+    id ("kotlin-kapt")
+
     id("com.google.dagger.hilt.android")
+    id("com.google.devtools.ksp")
+
 
 
 }
@@ -73,23 +76,25 @@ dependencies {
     debugImplementation(libs.ui.test.manifest)
 
     //Dagger Hilt
-    implementation("com.google.dagger:hilt-android:2.44")
-    kapt("com.google.dagger:hilt-android-compiler:2.44")
+    implementation(libs.hilt.android)
+    ksp(libs.hilt.compiler)
 
+    //Room
     val room_version = "2.6.0"
+
 
     implementation("androidx.room:room-runtime:$room_version")
     annotationProcessor("androidx.room:room-compiler:$room_version")
-
-    // To use Kotlin annotation processing tool (kapt)
     kapt("androidx.room:room-compiler:$room_version")
+
+
+
 
     implementation("androidx.lifecycle:lifecycle-viewmodel-compose:2.6.2")
 
-    val nav_version = "2.7.4"
 
-    implementation("androidx.navigation:navigation-compose:$nav_version")
-
+    implementation(libs.androidx.navigation.compose)
+    implementation(libs.androidx.hilt.navigation.compose)
 
 
 }
