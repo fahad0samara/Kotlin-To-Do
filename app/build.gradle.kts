@@ -79,19 +79,19 @@ dependencies {
     implementation(libs.hilt.android)
     ksp(libs.hilt.compiler)
 
-    //Room
     val room_version = "2.6.0"
-
 
     implementation("androidx.room:room-runtime:$room_version")
     annotationProcessor("androidx.room:room-compiler:$room_version")
+    implementation ("androidx.room:room-ktx:2.6.0")
+
+
+    // To use Kotlin annotation processing tool (kapt)
     kapt("androidx.room:room-compiler:$room_version")
-
-
-
 
     implementation("androidx.lifecycle:lifecycle-viewmodel-compose:2.6.2")
 
+    val nav_version = "2.7.4"
 
     implementation(libs.androidx.navigation.compose)
     implementation(libs.androidx.hilt.navigation.compose)

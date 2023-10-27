@@ -17,6 +17,7 @@ import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.FloatingActionButton
 import androidx.compose.material3.Icon
 import androidx.compose.material3.IconButton
+import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Text
 import androidx.compose.material3.TopAppBar
@@ -26,6 +27,7 @@ import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.unit.dp
 import androidx.hilt.navigation.compose.hiltViewModel
 import com.fahad.todoapp.data.local.dto.LocalNote
@@ -42,6 +44,10 @@ fun Screen (
     val stateUi = viewModel.stateUi
 
     var menuExpand by remember {
+        mutableStateOf(false)
+    }
+
+    var showDialog by remember {
         mutableStateOf(false)
     }
 
@@ -124,22 +130,27 @@ fun Screen (
             )
         },
         floatingActionButton = {
-FloatingActionButton(
-    onClick = {
-
-
-    }
+FloatingActionButton( onClick = {
+    showDialog=true
+}
 ) {
+
+
 
                                Icon(
                                       imageVector = Icons.Filled.Add,
+
+                                   tint = Color.White,
                                       contentDescription = null,
                                       modifier = Modifier.padding(16.dp)
                                  )
+                                }
+        },
 
 
-        }
-        }
+
+
+
 
 
         ) { paddingValues ->
@@ -166,17 +177,43 @@ FloatingActionButton(
                                     note.description,
                                     note.isPinned,
                                     note.isArchived,
-                                    note.isFinished,
+                                   isFinished = true,
                                 )
                             )
                         },
                         onDeleteClick = {
                             viewModel.delete(note)
+                        },
 
+
+
+                        onUndoneClick = {
+                            viewModel.update(
+                                LocalNote(
+                                    note.id,
+                                    note.title,
+                                    note.content,
+                                    note.timestamp,
+                                    note.color,
+                                    note.isSynced,
+                                    note.description,
+                                    note.isPinned,
+                                    note.isArchived,
+                                    isFinished = false,
+                                )
+                            )
                         }
                     )
                 }
             }
+        }
+        if(showDialog){
+            DialogScreen(
+                mainViewModel = viewModel,
+                onDismissRequest={
+                    showDialog=false
+                }
+            )
         }
     }
 }
