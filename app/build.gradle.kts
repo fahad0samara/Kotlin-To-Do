@@ -92,9 +92,18 @@ dependencies {
     implementation("androidx.lifecycle:lifecycle-viewmodel-compose:2.6.2")
 
     val nav_version = "2.7.4"
-
-    implementation(libs.androidx.navigation.compose)
+    //navigation
+     implementation(libs.androidx.navigation.compose)
     implementation(libs.androidx.hilt.navigation.compose)
+
+
+    //lottie
+
+    implementation( "com.airbnb.android:lottie-compose:5.2.0")
+
+
+
+
 
 
 }
