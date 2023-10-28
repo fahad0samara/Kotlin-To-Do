@@ -10,11 +10,8 @@ data class LocalNote(
     val title: String,
     val content: String,
     val timestamp: Long,
-    val color: Int,
     val isSynced: Boolean,
     val description: String,
-    val isPinned: Boolean,
-    val isArchived: Boolean,
     val isFinished: Boolean,
 
 

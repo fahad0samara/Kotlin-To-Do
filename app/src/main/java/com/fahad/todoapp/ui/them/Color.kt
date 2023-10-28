@@ -1,4 +1,4 @@
-package com.fahad.todoapp.ui.theme
+package com.fahad.todoapp.ui.them
 
 import androidx.compose.ui.graphics.Color
 

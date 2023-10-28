@@ -1,4 +1,4 @@
-package com.fahad.todoapp
+package com.fahad.todoapp.ui.screen
 
 
 import androidx.compose.foundation.background
@@ -90,11 +90,10 @@ fun DialogScreen(onDismissRequest: () -> Unit,
                             title = titel,
                             description = description,
                             timestamp = System.currentTimeMillis(),
-                            isPinned = false,
-                            isArchived = false,
+
                             isFinished = false,
                             isSynced = false,
-                            color = 0,
+
                             content = ""
 
 

@@ -1,4 +1,4 @@
-package com.fahad.todoapp
+package com.fahad.todoapp.ui.screen
 
 import androidx.compose.foundation.background
 

@@ -19,11 +19,7 @@ interface DAONote {
     @Query("SELECT * FROM notes WHERE isFinished=:isFinished")
     fun getFinishedNotes(isFinished: Boolean): Flow<List<LocalNote>>
 
-    @Query("SELECT * FROM notes WHERE isPinned=:isPinned")
-    fun getPinnedNotes(isPinned: Boolean): Flow<List<LocalNote>>
 
-    @Query("SELECT * FROM notes WHERE isArchived=:isArchived")
-    fun getArchivedNotes(isArchived: Boolean): Flow<List<LocalNote>>
 
     @Query("SELECT * FROM notes WHERE isSynced=:isSynced")
     fun getSyncedNotes(isSynced: Boolean): Flow<List<LocalNote>>

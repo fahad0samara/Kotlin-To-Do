@@ -11,8 +11,8 @@ class Repository @Inject constructor(
     suspend fun insert (note: LocalNote) = daoNote.insert(note)
     fun getNotes() = daoNote.getNotes()
     suspend fun getFinishedNotes(isFinished: Boolean) = daoNote.getFinishedNotes(isFinished)
-    suspend fun getPinnedNotes(isPinned: Boolean) = daoNote.getPinnedNotes(isPinned)
-    suspend fun getArchivedNotes(isArchived: Boolean) = daoNote.getArchivedNotes(isArchived)
+
+
     suspend fun getSyncedNotes(isSynced: Boolean) = daoNote.getSyncedNotes(isSynced)
     suspend fun delete(note: LocalNote) = daoNote.delete(note)
     suspend fun update(note: LocalNote) = daoNote.update(note)

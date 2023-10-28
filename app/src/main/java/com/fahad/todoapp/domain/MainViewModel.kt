@@ -64,32 +64,27 @@ val stateUi= mutableStateOf(StateUtil())
 
 
             }
-            DISPLAY_TYPE.FINISHED -> {
-                viewModelScope.launch {
-                    repository.getPinnedNotes(true).collect{
-                            notesList->
-                        stateUi.value=stateUi.value.copy(
-                            currentNote = notesList
-                        )
-                    }
+               DISPLAY_TYPE.FINISHED -> {
+                   viewModelScope.launch {
+                       repository.getSyncedNotes(true).collect { notesList ->
+                           stateUi.value = stateUi.value.copy(
+                               currentNote = notesList
+                           )
+                       }
 
-                }
-
-
-            }
+                   }
+               }
             DISPLAY_TYPE.UNFINISHED -> {
                 viewModelScope.launch {
-                    repository.getPinnedNotes(false).collect{
-                            notesList->
-                        stateUi.value=stateUi.value.copy(
+                    repository.getSyncedNotes(false).collect { notesList ->
+                        stateUi.value = stateUi.value.copy(
                             currentNote = notesList
                         )
                     }
 
                 }
-
-
             }
+
 
 
 

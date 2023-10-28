@@ -1,4 +1,4 @@
-package com.fahad.todoapp.ui.theme
+package com.fahad.todoapp.ui.them
 
 import androidx.compose.material3.Typography
 import androidx.compose.ui.text.TextStyle
