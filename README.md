@@ -13,18 +13,17 @@ This is a simple To-Do app built using Kotlin and Android, designed to help you 
 - User-friendly and intuitive interface for easy task management.
 
   ## Screenshots
-
   <table>
   <tr>
     <td><img src="https://github.com/fahad0samara/Kotlin-To-Do/assets/90055525/dff8d5f1-3f25-4228-ab9f-db25c85487f5" alt="Screenshot 1"></td>
-     <td><img src="https://github.com/fahad0samara/Kotlin-To-Do/assets/90055525/a76f5d65-edc3-452a-b044-2fc334a387f7" alt="Screenshot 4"></td>
-  </tr>
-  <tr>
+      <td><img src="https://github.com/fahad0samara/Kotlin-To-Do/assets/90055525/87f860c3-7663-4c40-83e1-c596e15516bc" alt="Screenshot 3"></td>
     <td><img src="https://github.com/fahad0samara/Kotlin-To-Do/assets/90055525/a287ea3a-6cc4-4889-a192-25ddc5b1e50e" alt="Screenshot 2"></td>
-    <td><img src="https://github.com/fahad0samara/Kotlin-To-Do/assets/90055525/87f860c3-7663-4c40-83e1-c596e15516bc" alt="Screenshot 3"></td>
-   
+    <td><img src="https://github.com/fahad0samara/Kotlin-To-Do/assets/90055525/a76f5d65-edc3-452a-b044-2fc334a387f7" alt="Screenshot 4"></td>
   </tr>
 </table>
+
+
+
 
 
 ## Technologies Used
