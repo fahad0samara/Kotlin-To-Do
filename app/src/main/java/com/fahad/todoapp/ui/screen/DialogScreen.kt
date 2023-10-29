@@ -30,19 +30,14 @@ fun DialogScreen(onDismissRequest: () -> Unit,
                 mainViewModel: MainViewModel
                  ) {
     Dialog(onDismissRequest = onDismissRequest) {
-        var titel by remember {
-            mutableStateOf("")
-        }
-        var description by remember {
-            mutableStateOf("")
-        }
+
 
 
 
 
         Column(modifier = Modifier
             .clip(RoundedCornerShape(16.dp))
-            .background(color = MaterialTheme.colorScheme.background)
+            .background(color = MaterialTheme.colorScheme.onSecondary)
             .padding(16.dp)
             .fillMaxWidth()
 
@@ -56,9 +51,9 @@ fun DialogScreen(onDismissRequest: () -> Unit,
 
                 )
             TextField(
-                value = titel,
+                value = mainViewModel.titel.value,
                 onValueChange = {
-                    titel = it
+                    mainViewModel.titel.value = it
                 },
                 placeholder = {
                     Text(text = "Enter Title")
@@ -69,9 +64,9 @@ fun DialogScreen(onDismissRequest: () -> Unit,
             )
             Spacer(modifier = Modifier.padding(8.dp))
             TextField(
-                value = description,
+                value = mainViewModel.description.value,
                 onValueChange = {
-                    description = it
+                    mainViewModel.description.value = it
                 },
                 placeholder = {
                     Text(text = "Enter Description")
@@ -87,8 +82,8 @@ fun DialogScreen(onDismissRequest: () -> Unit,
                     mainViewModel.insert(
                         LocalNote(
                             id = null,
-                            title = titel,
-                            description = description,
+                            title = mainViewModel.titel.value,
+                            description = mainViewModel.description.value,
                             timestamp = System.currentTimeMillis(),
 
                             isFinished = false,

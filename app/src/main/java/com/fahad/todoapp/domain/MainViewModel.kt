@@ -1,7 +1,10 @@
 package com.fahad.todoapp.domain
 
 
+import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.remember
+import androidx.compose.runtime.setValue
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.fahad.todoapp.data.local.dto.LocalNote
@@ -17,6 +20,12 @@ class MainViewModel @Inject constructor(
 ): ViewModel() {
 val stateUi= mutableStateOf(StateUtil())
 
+
+    val menuExpand = mutableStateOf(false)
+    val showDialog = mutableStateOf(false)
+
+    val titel = mutableStateOf("")
+    val description = mutableStateOf("")
 
     init {
         getNotes()

@@ -44,22 +44,21 @@ fun Screen(
 ) {
     val stateUi = viewModel.stateUi
 
-    var menuExpand by remember { mutableStateOf(false) }
-    var showDialog by remember { mutableStateOf(false) }
+
 
     Scaffold(
         topBar = {
             TopAppBar(
                 title = { Text(text = "Notes") },
                 actions = {
-                    IconButton(onClick = { menuExpand = !menuExpand }) {
+                    IconButton(onClick = { viewModel.menuExpand.value = !viewModel.menuExpand.value }) {
                         Icon(
                             painter = painterResource(id = R.drawable.outline_filter_list_24),
                             contentDescription = null)
                     }
                     DropdownMenu(
-                        expanded = menuExpand,
-                        onDismissRequest = { menuExpand = false }
+                        expanded = viewModel.menuExpand.value,
+                        onDismissRequest = { viewModel.menuExpand.value = false }
                     ) {
                         val displayTypes = listOf(
                             "All" to DISPLAY_TYPE.ALL,
@@ -72,7 +71,7 @@ fun Screen(
                                 text = { Text(text) },
                                 onClick = {
                                     viewModel.onDisplayTypeChange(displayType)
-                                    menuExpand = false
+                                    viewModel.menuExpand.value = false
                                 }
                             )
                         }
@@ -82,7 +81,7 @@ fun Screen(
         },
         floatingActionButton = {
             FloatingActionButton(
-                onClick = { showDialog = true },
+                onClick = { viewModel.showDialog.value = true },
                 shape = RoundedCornerShape(50),
                 modifier = Modifier.padding(16.dp)
             ) {
@@ -113,10 +112,10 @@ fun Screen(
                 }
             }
         }
-        if (showDialog) {
+        if (viewModel.showDialog.value) {
             DialogScreen(
                 mainViewModel = viewModel,
-                onDismissRequest = { showDialog = false }
+                onDismissRequest = {viewModel.showDialog.value = false }
             )
         }
     }
