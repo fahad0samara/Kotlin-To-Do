@@ -73,7 +73,7 @@ val stateUi= mutableStateOf(StateUtil())
 
 
             }
-               DISPLAY_TYPE.FINISHED -> {
+               DISPLAY_TYPE.UNFINISHED -> {
                    viewModelScope.launch {
                        repository.getSyncedNotes(true).collect { notesList ->
                            stateUi.value = stateUi.value.copy(
@@ -83,7 +83,7 @@ val stateUi= mutableStateOf(StateUtil())
 
                    }
                }
-            DISPLAY_TYPE.UNFINISHED -> {
+            DISPLAY_TYPE.FINISHED -> {
                 viewModelScope.launch {
                     repository.getSyncedNotes(false).collect { notesList ->
                         stateUi.value = stateUi.value.copy(
